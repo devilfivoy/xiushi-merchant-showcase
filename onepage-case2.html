@@ -7,7 +7,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;background:#e8e6e3;display:flex;justify-content:center;padding:24px;color:#1a1a1a}
-.slide{width:1280px;background:#fff;padding:52px 64px 48px;position:relative;box-shadow:0 4px 32px rgba(0,0,0,.08)}
+.slide{width:100%;max-width:1280px;background:#fff;padding:52px 64px 48px;position:relative;box-shadow:0 4px 32px rgba(0,0,0,.08)}
 
 .main-title{display:flex;align-items:flex-start;gap:16px;margin-bottom:36px}
 .main-title .bar{width:8px;background:#E60033;border-radius:4px;flex-shrink:0;align-self:stretch}
@@ -80,6 +80,60 @@ body{font-family:-apple-system,"PingFang SC","Helvetica Neue","Microsoft YaHei",
 .footer{margin-top:24px;padding-top:14px;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .footer .source{font-size:11px;color:#ccc}
 .footer .brand{font-size:12px;font-weight:800;color:#E60033;letter-spacing:1px}
+
+/* ===== 平板 ===== */
+@media(max-width:960px){
+body{padding:12px}
+.slide{padding:32px 28px 28px}
+.main-title h1{font-size:28px}
+.shop-block{flex-direction:column;align-items:flex-start;gap:12px}
+.kpi-strip{flex-wrap:wrap}
+.kpi-cell{min-width:33.3%;border-bottom:1px solid #f0f0f0}
+.kpi-val{font-size:28px}
+.adv-grid{flex-direction:column}
+.actions-row{flex-direction:column}
+.formula-bar{flex-wrap:wrap}
+.formula-step{min-width:40%}
+.formula-plus{padding:10px}
+.rep-grid{flex-direction:column}
+.footer{flex-direction:column;gap:8px;text-align:center}
+}
+
+/* ===== 手机 ===== */
+@media(max-width:520px){
+body{padding:6px}
+.slide{padding:24px 16px 20px}
+.main-title{gap:10px;margin-bottom:20px}
+.main-title .bar{width:5px}
+.main-title h1{font-size:22px;letter-spacing:0}
+.shop-block{padding:16px 18px;margin-bottom:18px}
+.shop-pill{font-size:13px;padding:7px 16px}
+.shop-desc{font-size:14px}
+.kpi-strip{border-radius:10px}
+.kpi-cell{min-width:50%;padding:16px 10px}
+.kpi-val{font-size:24px}
+.kpi-val small{font-size:14px}
+.kpi-lbl{font-size:10px}
+.adv-item{padding:10px 12px}
+.adv-item .num{width:20px;height:20px;font-size:11px}
+.adv-item p{font-size:13px}
+.sec-title h2{font-size:18px}
+.act-top{padding:10px 12px}
+.act-name{font-size:13px}
+.act-body{padding:12px 12px 8px}
+.act-body h3{font-size:14px}
+.act-body p{font-size:12px}
+.act-data{padding:0 12px 12px}
+.data-row .label{width:58px;font-size:9px}
+.formula-bar{border-radius:8px}
+.formula-step{padding:12px 8px}
+.formula-step .em{font-size:15px}
+.formula-step .sub{font-size:10px}
+.formula-plus{font-size:16px;padding:8px}
+.rep-item{padding:12px 14px}
+.rep-item h4{font-size:13px}
+.rep-item p{font-size:12px}
+}
 </style>
 </head>
 <body>
