@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>札x旗舰店 · 月上新中场实战复盘</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;background:#e8e6e3;display:flex;justify-content:center;padding:24px;color:#1a1a1a}
+.slide{width:1280px;background:#fff;padding:52px 64px 48px;position:relative;box-shadow:0 4px 32px rgba(0,0,0,.08)}
+
+/* ===== 主标题 ===== */
+.main-title{display:flex;align-items:flex-start;gap:16px;margin-bottom:36px}
+.main-title .bar{width:8px;background:#E60033;border-radius:4px;flex-shrink:0;align-self:stretch}
+.main-title h1{font-size:38px;font-weight:900;line-height:1.32;letter-spacing:-1px}
+.main-title h1 .red{color:#E60033}
+
+/* ===== 商家信息（图1优化） ===== */
+.shop-block{background:#FAFAFA;border-radius:14px;padding:24px 32px;margin-bottom:28px;display:flex;align-items:center;gap:24px;border:1px solid #f0f0f0}
+.shop-pill{display:inline-flex;align-items:center;gap:6px;background:#FCE4EC;color:#E60033;font-size:15px;font-weight:800;padding:10px 24px;border-radius:24px;white-space:nowrap;flex-shrink:0}
+.shop-desc{font-size:16px;color:#333;line-height:1.8;flex:1}
+.shop-desc b{color:#E60033;font-weight:800}
+
+/* ===== KPI条（图2优化） ===== */
+.kpi-strip{display:flex;margin-bottom:28px;border-radius:14px;overflow:hidden;border:1px solid #f0f0f0}
+.kpi-cell{flex:1;padding:24px 16px;text-align:center;background:#fff;border-right:1px solid #f0f0f0;position:relative}
+.kpi-cell:last-child{border-right:none}
+.kpi-cell::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:#E60033}
+.kpi-cell:nth-child(even){background:#FFFAFA}
+.kpi-val{font-size:36px;font-weight:900;color:#E60033;line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.kpi-val small{font-size:17px;font-weight:700}
+.kpi-lbl{font-size:12px;color:#999;margin-top:8px;font-weight:500;line-height:1.4}
+
+/* ===== 亮点优势 ===== */
+.adv-section{margin-bottom:24px}
+.adv-header{margin-bottom:14px}
+.adv-label{background:#E60033;color:#fff;font-size:14px;font-weight:800;padding:8px 20px;border-radius:20px;display:inline-block}
+.adv-grid{display:flex;gap:14px}
+.adv-item{flex:1;background:#FFF5F5;border-left:4px solid #E60033;padding:14px 16px;border-radius:0 10px 10px 0}
+.adv-item .num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:#E60033;color:#fff;font-size:13px;font-weight:900;border-radius:50%;margin-right:8px;vertical-align:middle}
+.adv-item p{font-size:14px;color:#333;line-height:1.7;display:inline}
+.adv-item b{color:#E60033;font-weight:800}
+
+/* ===== 分区标题 ===== */
+.sec-title{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.sec-title .bar{width:6px;height:24px;background:#E60033;border-radius:3px}
+.sec-title h2{font-size:22px;font-weight:900}
+.sec-title h2 .red{color:#E60033}
+
+/* ===== 三列动作卡 ===== */
+.actions-row{display:flex;gap:14px;margin-bottom:24px}
+.act-card{flex:1;border:2px solid #f0f0f0;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.act-top{background:#E60033;color:#fff;padding:13px 16px;display:flex;align-items:center;gap:6px}
+.act-card:nth-child(2) .act-top{background:#FF6B6B}
+.act-card:nth-child(3) .act-top{background:#D84315}
+.act-icon{font-size:18px}.act-name{font-size:15px;font-weight:800}
+.act-body{padding:16px 16px 10px;flex:1}
+.act-body h3{font-size:16px;font-weight:900;margin-bottom:8px;line-height:1.35}
+.act-body p{font-size:13px;color:#555;line-height:1.85}
+.act-body p b{color:#E60033;font-weight:800}
+.act-data{padding:0 16px 16px;display:flex;flex-direction:column;gap:7px}
+.data-row{display:flex;align-items:center;gap:8px}
+.data-row .label{font-size:10px;color:#999;width:68px;flex-shrink:0;text-align:right}
+.data-row .bar-wrap{flex:1;height:20px;background:#f5f5f5;border-radius:10px;overflow:hidden}
+.data-row .bar-fill{height:100%;border-radius:10px;display:flex;align-items:center;justify-content:flex-end;padding-right:7px;font-size:11px;font-weight:800;color:#fff;min-width:36px}
+.bar-red{background:linear-gradient(90deg,#E60033,#FF6B6B)}
+.bar-pink{background:linear-gradient(90deg,#FF6B6B,#FFB3B3)}
+.bar-deep{background:linear-gradient(90deg,#D84315,#FF8A65)}
+.data-row .val-text{font-size:12px;font-weight:900;color:#E60033;width:48px;flex-shrink:0}
+
+/* ===== 优化建议 ===== */
+.tip-section{margin-bottom:24px}
+.tip-strip{display:flex;align-items:stretch;border-radius:12px;overflow:hidden;border:2px solid #FF8F00}
+.tip-label{background:#FF8F00;color:#fff;font-size:14px;font-weight:800;padding:16px 20px;display:flex;align-items:center;gap:6px;white-space:nowrap;line-height:1.5}
+.tip-text{flex:1;padding:16px 20px;font-size:13.5px;color:#555;line-height:1.8;background:#FFFDE7}
+.tip-text b{color:#E65100;font-weight:800}
+
+/* ===== 行业可复制 ===== */
+.rep-grid{display:flex;gap:14px}
+.rep-item{flex:1;background:#FFF5F5;border:2px solid #FCE4EC;border-radius:12px;padding:16px 18px}
+.rep-item .rep-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:#E60033;color:#fff;font-size:13px;font-weight:900;border-radius:50%;margin-right:8px;vertical-align:top;margin-top:2px}
+.rep-item h4{font-size:14px;font-weight:900;color:#E60033;margin-bottom:6px;display:inline}
+.rep-item p{font-size:13px;color:#555;line-height:1.7;margin-top:6px}
+
+/* ===== 底部 ===== */
+.footer{margin-top:24px;padding-top:14px;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
+.footer .source{font-size:11px;color:#ccc}
+.footer .brand{font-size:12px;font-weight:800;color:#E60033;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <!-- 主标题 -->
+  <div class="main-title">
+    <div class="bar"></div>
+    <h1>用新品做预约钩子，单品聚焦打出<br><span class="red">10 倍日播</span>的中场爆发力</h1>
+  </div>
+
+  <!-- 商家信息 -->
+  <div class="shop-block">
+    <span class="shop-pill">📌 札x旗舰店 · 7月中场</span>
+    <span class="shop-desc">验证了店播「月上新」打法，每月围绕一款新品打一场中场，机制比大场轻、比日播优，<b>用新品做预约钩子、用老粉池做转化底盘、用单品聚焦降低执行成本</b></span>
+  </div>
+
+  <!-- 核心数据 -->
+  <div class="kpi-strip">
+    <div class="kpi-cell"><div class="kpi-val">40<small>万+</small></div><div class="kpi-lbl">单场 DGMV（10x 日播）</div></div>
+    <div class="kpi-cell"><div class="kpi-val">&gt;30<small>%</small></div><div class="kpi-lbl">转化率（+5pp vs 大场）</div></div>
+    <div class="kpi-cell"><div class="kpi-val">~60<small>%</small></div><div class="kpi-lbl">新品占 GMV</div></div>
+    <div class="kpi-cell"><div class="kpi-val">&gt;80<small>%</small></div><div class="kpi-lbl">新品占件数</div></div>
+    <div class="kpi-cell"><div class="kpi-val">~40<small>%</small></div><div class="kpi-lbl">预约贡献 GMV</div></div>
+  </div>
+
+  <!-- 亮点优势 -->
+  <div class="adv-section">
+    <div class="adv-header"><span class="adv-label">亮点优势</span></div>
+    <div class="adv-grid">
+      <div class="adv-item"><span class="num">1</span><p>单品聚焦让老粉进房就知道买什么，决策门槛低，转化率<b>高于大场近 5 个百分点</b></p></div>
+      <div class="adv-item"><span class="num">2</span><p>「打得准」比「发得多」高效，15 篇聚焦笔记带来的<b>预约贡献 GMV 近 40%</b></p></div>
+      <div class="adv-item"><span class="num">3</span><p>每月一场中场，老粉形成「新品到就来」的节奏感，<b>无需等大促节点</b></p></div>
+    </div>
+  </div>
+
+  <!-- 三个关键动作 -->
+  <div class="sec-title">
+    <div class="bar"></div>
+    <h2>三个<span class="red">关键动作</span></h2>
+  </div>
+
+  <div class="actions-row">
+    <div class="act-card">
+      <div class="act-top"><span class="act-icon">🔗</span><span class="act-name">动作一 · 用新品做预约钩子</span></div>
+      <div class="act-body">
+        <h3>把月上新变成一次小蓄水</h3>
+        <p>T-7 到 T-1 密集发 15 篇预告笔记，多数围绕新品。每篇只讲一个品、只打一个卖点。「打得准」比「发得多」更高效。</p>
+      </div>
+      <div class="act-data">
+        <div class="data-row"><span class="label">预约进房率</span><div class="bar-wrap"><div class="bar-fill bar-red" style="width:88%">&gt;85%</div></div></div>
+        <div class="data-row"><span class="label">预约支付率</span><div class="bar-wrap"><div class="bar-fill bar-red" style="width:61%">&gt;60%</div></div></div>
+        <div class="data-row"><span class="label">预约贡献GMV</span><div class="bar-wrap"><div class="bar-fill bar-pink" style="width:39%">~40%</div></div></div>
+      </div>
+    </div>
+
+    <div class="act-card">
+      <div class="act-top"><span class="act-icon">🎯</span><span class="act-name">动作二 · 货盘做减法</span></div>
+      <div class="act-body">
+        <h3>用「单品击穿」替代「多品类铺货」</h3>
+        <p>一个主角品加几个配角就够了。新品独占 GMV 近 <b>60%</b>、件数超 <b>80%</b>，约 10 个 SKU 不跨类目。客单低、决策门槛低，转化率<b>高于大场近 5 个百分点</b>。</p>
+      </div>
+      <div class="act-data">
+        <div class="data-row"><span class="label">新品GMV占比</span><div class="bar-wrap"><div class="bar-fill bar-red" style="width:60%">~60%</div></div></div>
+        <div class="data-row"><span class="label">新品件数占比</span><div class="bar-wrap"><div class="bar-fill bar-red" style="width:80%">&gt;80%</div></div></div>
+        <div class="data-row"><span class="label">转化率</span><div class="bar-wrap"><div class="bar-fill bar-pink" style="width:34%">&gt;30%</div></div></div>
+      </div>
+    </div>
+
+    <div class="act-card">
+      <div class="act-top"><span class="act-icon">👥</span><span class="act-name">动作三 · 老粉池做底盘</span></div>
+      <div class="act-body">
+        <h3>预约是最高效的筛子</h3>
+        <p>老粉贡献超 <b>70%</b> 支付金额，转化率是行业 <b>3-4 倍</b>。预约用户转化率是非预约的近 <b>2 倍</b>，客单高出 <b>50%</b>。消息推送转化率全场最高。</p>
+      </div>
+      <div class="act-data">
+        <div class="data-row"><span class="label">老粉支付占比</span><div class="bar-wrap"><div class="bar-fill bar-deep" style="width:73%">&gt;70%</div></div></div>
+        <div class="data-row"><span class="label">行业倍数</span><div class="bar-wrap"><div class="bar-fill bar-deep" style="width:80%">3-4x</div></div></div>
+        <div class="data-row"><span class="label">预约转化倍数</span><div class="bar-wrap"><div class="bar-fill bar-deep" style="width:50%">~2x</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 优化建议 -->
+  <div class="tip-section">
+    <div class="sec-title" style="margin-bottom:12px">
+      <div class="bar" style="background:#FF8F00"></div>
+      <h2 style="font-size:20px">⚠️ <span style="color:#FF8F00">优化建议</span></h2>
+    </div>
+    <div class="tip-strip">
+      <div class="tip-label">⚠️ 非粉「买了没关注」<br>是最大隐性漏损</div>
+      <div class="tip-text">
+        非粉丝进房占比超 <b>60%</b>，但支付占比不到 <b>25%</b>，新粉转化不足 <b>3%</b>。非粉支付率说明已有大量用户下单了，只是没有点关注。<b>买了没关注，下一场月上新触达不到她们。</b>建议在话术里加入关注引导，例如主播拆包试吃时说「下次新口味上架点关注第一时间知道」，付款后口播「收到货觉得好吃点个关注下次上新不迷路」。
+      </div>
+    </div>
+  </div>
+
+  <!-- 行业可复制 -->
+  <div class="sec-title" style="margin-bottom:14px">
+    <div class="bar"></div>
+    <h2 style="font-size:20px">💡 行业<span class="red">可复制</span></h2>
+  </div>
+  <div class="rep-grid">
+    <div class="rep-item">
+      <span class="rep-num">1</span>
+      <h4>新品是店播冲高的核心支撑</h4>
+      <p>每月围绕一款新品打一场中场，老粉形成「新品到就来」的节奏感，无需等 618、双 11。</p>
+    </div>
+    <div class="rep-item">
+      <span class="rep-num">2</span>
+      <h4>大场和日播之间，「中场」撑量</h4>
+      <p>用新品驱动，机制比日播优但不用到囤货级，单场 GMV 做到日播 10 倍。每月 1-2 次，成本可控，老粉活跃度不掉。</p>
+    </div>
+    <div class="rep-item">
+      <span class="rep-num">3</span>
+      <h4>预约「少而精」比「多而散」高效</h4>
+      <p>15 篇聚焦单一新品做到高预约转化（比广撒网高 46%），内容聚焦比数量重要。</p>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <div class="source">数据来源 · 小红书电商 · 2026年7月 ｜ 案例数据仅供参考，实际效果因商家经营情况而异</div>
+    <div class="brand">小红书电商</div>
+  </div>
+
+</div>
+</body>
+</html>
