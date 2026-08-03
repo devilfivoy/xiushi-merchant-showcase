@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>内蒙xx的店 · 「猪爆脆」驱动的店播上新日</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;background:#e8e6e3;display:flex;justify-content:center;padding:24px;color:#1a1a1a}
+.slide{width:1280px;background:#fff;padding:52px 64px 48px;position:relative;box-shadow:0 4px 32px rgba(0,0,0,.08)}
+
+.main-title{display:flex;align-items:flex-start;gap:16px;margin-bottom:36px}
+.main-title .bar{width:8px;background:#E60033;border-radius:4px;flex-shrink:0;align-self:stretch}
+.main-title h1{font-size:38px;font-weight:900;line-height:1.32;letter-spacing:-1px}
+.main-title h1 .red{color:#E60033}
+
+.shop-block{background:#FAFAFA;border-radius:14px;padding:24px 32px;margin-bottom:28px;display:flex;align-items:center;gap:24px;border:1px solid #f0f0f0}
+.shop-pill{display:inline-flex;align-items:center;gap:6px;background:#FCE4EC;color:#E60033;font-size:15px;font-weight:800;padding:10px 24px;border-radius:24px;white-space:nowrap;flex-shrink:0}
+.shop-desc{font-size:16px;color:#333;line-height:1.8;flex:1}
+.shop-desc b{color:#E60033;font-weight:800}
+
+.kpi-strip{display:flex;margin-bottom:28px;border-radius:14px;overflow:hidden;border:1px solid #f0f0f0}
+.kpi-cell{flex:1;padding:24px 16px;text-align:center;background:#fff;border-right:1px solid #f0f0f0;position:relative}
+.kpi-cell:last-child{border-right:none}
+.kpi-cell::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:#E60033}
+.kpi-cell:nth-child(even){background:#FFFAFA}
+.kpi-val{font-size:36px;font-weight:900;color:#E60033;line-height:1;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.kpi-val small{font-size:17px;font-weight:700}
+.kpi-lbl{font-size:12px;color:#999;margin-top:8px;font-weight:500;line-height:1.4}
+
+.adv-section{margin-bottom:24px}
+.adv-header{margin-bottom:14px}
+.adv-label{background:#E60033;color:#fff;font-size:14px;font-weight:800;padding:8px 20px;border-radius:20px;display:inline-block}
+.adv-grid{display:flex;gap:14px}
+.adv-item{flex:1;background:#FFF5F5;border-left:4px solid #E60033;padding:14px 16px;border-radius:0 10px 10px 0}
+.adv-item .num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:#E60033;color:#fff;font-size:13px;font-weight:900;border-radius:50%;margin-right:8px;vertical-align:middle}
+.adv-item p{font-size:14px;color:#333;line-height:1.7;display:inline}
+.adv-item b{color:#E60033;font-weight:800}
+
+.sec-title{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.sec-title .bar{width:6px;height:24px;background:#E60033;border-radius:3px}
+.sec-title h2{font-size:22px;font-weight:900}
+.sec-title h2 .red{color:#E60033}
+
+.actions-row{display:flex;gap:14px;margin-bottom:24px}
+.act-card{flex:1;border:2px solid #f0f0f0;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.act-top{background:#E60033;color:#fff;padding:13px 16px;display:flex;align-items:center;gap:6px}
+.act-card:nth-child(2) .act-top{background:#FF6B6B}
+.act-card:nth-child(3) .act-top{background:#2E7D32}
+.act-icon{font-size:18px}.act-name{font-size:15px;font-weight:800}
+.act-body{padding:16px 16px 10px;flex:1}
+.act-body h3{font-size:16px;font-weight:900;margin-bottom:8px;line-height:1.35}
+.act-body p{font-size:13px;color:#555;line-height:1.85}
+.act-body p b{color:#E60033;font-weight:800}
+.act-data{padding:0 16px 16px;display:flex;flex-direction:column;gap:7px}
+.data-row{display:flex;align-items:center;gap:8px}
+.data-row .label{font-size:10px;color:#999;width:68px;flex-shrink:0;text-align:right}
+.data-row .bar-wrap{flex:1;height:20px;background:#f5f5f5;border-radius:10px;overflow:hidden}
+.data-row .bar-fill{height:100%;border-radius:10px;display:flex;align-items:center;justify-content:flex-end;padding-right:7px;font-size:11px;font-weight:800;color:#fff;min-width:36px}
+.bar-red{background:linear-gradient(90deg,#E60033,#FF6B6B)}
+.bar-pink{background:linear-gradient(90deg,#FF6B6B,#FFB3B3)}
+.bar-green{background:linear-gradient(90deg,#2E7D32,#66BB6A)}
+.data-row .val-text{font-size:12px;font-weight:900;color:#E60033;width:48px;flex-shrink:0}
+
+.formula-bar{display:flex;align-items:stretch;border-radius:12px;overflow:hidden;border:2px solid #E60033;margin-bottom:24px}
+.formula-step{flex:1;padding:18px 12px;text-align:center;background:#FFF5F5;border-right:1px solid #FFD0D0;display:flex;flex-direction:column;justify-content:center}
+.formula-step:last-child{border-right:none;background:#E60033;color:#fff}
+.formula-step .em{font-size:18px;font-weight:900;color:#E60033;margin-bottom:4px}
+.formula-step:last-child .em{color:#FFD600}
+.formula-step .sub{font-size:12px;color:#888}
+.formula-step:last-child .sub{color:#FFD0D0}
+.formula-plus{background:#E60033;color:#fff;font-size:22px;font-weight:900;padding:18px 12px;display:flex;align-items:center}
+
+.rep-grid{display:flex;gap:14px}
+.rep-item{flex:1;background:#FFF5F5;border:2px solid #FCE4EC;border-radius:12px;padding:16px 18px}
+.rep-item .rep-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:#E60033;color:#fff;font-size:13px;font-weight:900;border-radius:50%;margin-right:8px;vertical-align:top;margin-top:2px}
+.rep-item h4{font-size:14px;font-weight:900;color:#E60033;margin-bottom:6px;display:inline}
+.rep-item p{font-size:13px;color:#555;line-height:1.7;margin-top:6px}
+
+.footer{margin-top:24px;padding-top:14px;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
+.footer .source{font-size:11px;color:#ccc}
+.footer .brand{font-size:12px;font-weight:800;color:#E60033;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <!-- 主标题 -->
+  <div class="main-title">
+    <div class="bar"></div>
+    <h1>「猪爆脆」驱动的店播<span class="red">「上新日」</span>打法<br>单场 GMV <span class="red">40万+</span>，日播的 <span class="red">20 倍</span></h1>
+  </div>
+
+  <!-- 商家信息 -->
+  <div class="shop-block">
+    <span class="shop-pill">📌 内蒙xx的店 · 8月大场</span>
+    <span class="shop-desc">跑通了一条不依赖大促日历的打法，<b>用一款自研新品当唯一主角，靠 13 天长周期笔记蓄水把老粉叫醒，再用全家桶把单品流量变成组合客单</b></span>
+  </div>
+
+  <!-- 核心数据 -->
+  <div class="kpi-strip">
+    <div class="kpi-cell"><div class="kpi-val">40<small>万+</small></div><div class="kpi-lbl">单场 DGMV（20x 日播）</div></div>
+    <div class="kpi-cell"><div class="kpi-val">&gt;95<small>%</small></div><div class="kpi-lbl">新品+全家桶 GMV</div></div>
+    <div class="kpi-cell"><div class="kpi-val">&gt;99<small>%</small></div><div class="kpi-lbl">自然流量</div></div>
+    <div class="kpi-cell"><div class="kpi-val">140<small>元+</small></div><div class="kpi-lbl">成交客单（新品 4x）</div></div>
+  </div>
+
+  <!-- 亮点优势 -->
+  <div class="adv-section">
+    <div class="adv-header"><span class="adv-label">亮点优势</span></div>
+    <div class="adv-grid">
+      <div class="adv-item"><span class="num">1</span><p>新品自带的「没吃过」势能<b>替代了大促的价格刺激</b>，无需等 618、双 11</p></div>
+      <div class="adv-item"><span class="num">2</span><p>自然流量超 99%，蓄水期的内容投入<b>直接替代了流量采买</b></p></div>
+      <div class="adv-item"><span class="num">3</span><p>新品拉人 + 全家桶提客单，成交客单是新品单价的近 <b>4 倍</b></p></div>
+    </div>
+  </div>
+
+  <!-- 三个关键动作 -->
+  <div class="sec-title">
+    <div class="bar"></div>
+    <h2>三个<span class="red">关键动作</span></h2>
+  </div>
+
+  <div class="actions-row">
+    <div class="act-card">
+      <div class="act-top"><span class="act-icon">🆕</span><span class="act-name">动作一 · 新品就是整场的理由</span></div>
+      <div class="act-body">
+        <h3>整场直播定义成一次产品发布</h3>
+        <p>4 款「超级新品」贡献超 <b>60%</b> GMV，主推单品独占近 <b>40%</b>。老品长尾 20+ SKU 加起来不到 <b>5%</b>。从第一篇预告开始，所有内容都指向这一天。</p>
+      </div>
+      <div class="act-data">
+        <div class="data-row"><span class="label">新品GMV占比</span><div class="bar-wrap"><div class="bar-fill bar-red" style="width:63%">&gt;60%</div></div></div>
+        <div class="data-row"><span class="label">主推单品占比</span><div class="bar-wrap"><div class="bar-fill bar-red" style="width:40%">~40%</div></div></div>
+        <div class="data-row"><span class="label">老品GMV占比</span><div class="bar-wrap"><div class="bar-fill bar-pink" style="width:8%"></div></div><span class="val-text">&lt;5%</span></div>
+      </div>
+    </div>
+
+    <div class="act-card">
+      <div class="act-top"><span class="act-icon">🧺</span><span class="act-name">动作二 · 全家桶提客单</span></div>
+      <div class="act-body">
+        <h3>把单品爆款翻译成组合客单</h3>
+        <p>新品定价不到 40 元，单买客单必然低。全家桶（选 N 件减 M 元 + 送福袋）给用户一个「凑单不吃亏」的出口，成交客单 <b>140元+</b>，是新品单价的近 <b>4 倍</b>。<b>新品负责拉人，全家桶负责提客单，两者是一套机制的两半</b>。</p>
+      </div>
+      <div class="act-data">
+        <div class="data-row"><span class="label">成交客单</span><div class="bar-wrap"><div class="bar-fill bar-red" style="width:75%">140元+</div></div></div>
+        <div class="data-row"><span class="label">客单倍数</span><div class="bar-wrap"><div class="bar-fill bar-red" style="width:80%">~4x</div></div></div>
+        <div class="data-row"><span class="label">全家桶GMV</span><div class="bar-wrap"><div class="bar-fill bar-pink" style="width:33%">&gt;30%</div></div></div>
+      </div>
+    </div>
+
+    <div class="act-card">
+      <div class="act-top"><span class="act-icon">📝</span><span class="act-name">动作三 · 13天长周期蓄水</span></div>
+      <div class="act-body">
+        <h3>换来 99%+ 自然流量</h3>
+        <p>13 天连续不断更，累计 <b>70+</b> 篇预告笔记，曝光 <b>100万+</b> 人次。预约用户转化率是非预约的 <b>3 倍</b>，客单高出近 <b>40%</b>。靠的是密度，持续维持「有大事要发生」的心智。</p>
+      </div>
+      <div class="act-data">
+        <div class="data-row"><span class="label">预告笔记</span><div class="bar-wrap"><div class="bar-fill bar-green" style="width:70%">70+篇</div></div></div>
+        <div class="data-row"><span class="label">曝光人次</span><div class="bar-wrap"><div class="bar-fill bar-green" style="width:90%">100万+</div></div></div>
+        <div class="data-row"><span class="label">预约转化倍数</span><div class="bar-wrap"><div class="bar-fill bar-green" style="width:75%">3x</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 公式总结 -->
+  <div class="formula-bar">
+    <div class="formula-step"><span class="em">🆕 自研新品</span><span class="sub">做整场的理由</span></div>
+    <div class="formula-plus">＋</div>
+    <div class="formula-step"><span class="em">📝 13天蓄水</span><span class="sub">替代流量采买</span></div>
+    <div class="formula-plus">＋</div>
+    <div class="formula-step"><span class="em">🧺 全家桶</span><span class="sub">把客单拉上去</span></div>
+    <div class="formula-plus">＝</div>
+    <div class="formula-step"><span class="em">🔥 40万+ 单场</span><span class="sub">20 倍日播爆发</span></div>
+  </div>
+
+  <!-- 行业可复制 -->
+  <div class="sec-title" style="margin-bottom:14px">
+    <div class="bar"></div>
+    <h2 style="font-size:20px">💡 行业<span class="red">可复制</span></h2>
+  </div>
+  <div class="rep-grid">
+    <div class="rep-item">
+      <span class="rep-num">1</span>
+      <h4>自研新品可以独立成为一场大场的全部理由</h4>
+      <p>这场超 95% 的 GMV 来自新品和配套全家桶，「产品本身的新鲜感」是一种可以规划、可以量产的流量资产。无需等 618、双 11，也无需靠全店满减。</p>
+    </div>
+    <div class="rep-item">
+      <span class="rep-num">2</span>
+      <h4>蓄水周期拉长到两周，用篇数换确定性</h4>
+      <p>70+ 篇里有很多单篇预约不足 10 个，但正是这种高频不断更维持住了「有大事」的心智。最终靠的是密度。</p>
+    </div>
+    <div class="rep-item">
+      <span class="rep-num">3</span>
+      <h4>爆款单品必须配一个客单出口</h4>
+      <p>低价新品拉来的流量如果没有组合装承接，客单会被压得很低。全家桶这类「选 N 件减 M 元」的结构，比全店满减更适合上新场。</p>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <div class="source">数据来源 · 小红书电商 · 2026年8月 ｜ 案例数据仅供参考，实际效果因商家经营情况而异</div>
+    <div class="brand">小红书电商</div>
+  </div>
+
+</div>
+</body>
+</html>
